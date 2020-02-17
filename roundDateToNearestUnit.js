@@ -1,13 +1,7 @@
 import { cloneDate, standardUnits, unitMs, unitChildren, unitGetters, unitSetters, smallestUnitSize } from "./unitHelpers";
 
-export const roundDateToNearestUnit = (date, unit, multiple) => {
+export const roundDateToNearestUnit = (date, unit, multiple = 1) => {
     date = cloneDate(date)
-    // everything below is unecessary work for standard units of time
-	if (standardUnits.includes(unit)) {
-		return new Date(
-			Math.round(date.getTime() / unitMs[unit] / multiple) * multiple
-		);
-    }
     let childUnit = unitChildren[unit];
     date = unitSetters[unit](
 		date,
@@ -20,14 +14,8 @@ export const roundDateToNearestUnit = (date, unit, multiple) => {
     return date;
 }
 
-export const roundDateToNearestUnitAfter = (date, unit, multiple) => {
+export const roundDateToNearestUnitAfter = (date, unit, multiple = 1) => {
 	date = cloneDate(date);
-	// everything below is unecessary work for standard units of time
-	if (standardUnits.includes(unit)) {
-		return new Date(
-			Math.ceil(date.getTime() / unitMs[unit] / multiple) * multiple
-		);
-	}
 	date = unitSetters[unit](
 		date,
 		Math.ceil(unitGetters[unit](date) / multiple) * multiple
@@ -40,14 +28,8 @@ export const roundDateToNearestUnitAfter = (date, unit, multiple) => {
     return date;
 };
 
-export const roundDateToNearestUnitBefore = (date, unit, multiple) => {
+export const roundDateToNearestUnitBefore = (date, unit, multiple = 1) => {
 	date = cloneDate(date);
-	// everything below is unecessary work for standard units of time
-	if (standardUnits.includes(unit)) {
-		return new Date(
-			Math.floor(date.getTime() / unitMs[unit] / multiple) * multiple
-		);
-	}
 	date = unitSetters[unit](
 		date,
 		Math.floor(unitGetters[unit](date) / multiple) * multiple
