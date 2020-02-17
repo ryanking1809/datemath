@@ -26,6 +26,10 @@ export const unitsBetween = (
 	const fullUnitMs = fullUnitEndDate - startDate;
 	let fullUnits = Math.round(fullUnitMs / unitMs[unit]);
 	fullUnits = Math.trunc((fullUnits * unitMs[unit]) / multiUnit);
+
+	// just divide the partial units by average unit definitions
+	// the decimal value itself probably isn't that valuable
+	// as long as addDurationToDate correctly reverses the value
 	const partialUnitMs = endDate - startDate - fullUnitMs;
 	const partialUnits = partialUnitMs / multiUnit;
 	return fullUnits + partialUnits;
