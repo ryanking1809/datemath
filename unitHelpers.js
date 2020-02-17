@@ -18,10 +18,6 @@ export const unitMs = {
     years: yearsMs,
 }
 
-export const baseUnitMuliplyers = {
-	weeks: { unit: "days", multiplier: 7 }
-};
-
 export const baseUnits = [
     "milliseconds",
     "seconds",
@@ -92,13 +88,33 @@ export const durationObj = {
 }
 
 export const isLastUnit = {
-    milliseconds: date => date.getMilliseconds() === 999,
-    seconds: date => date.getSeconds() === 59,
-    minutes: date => date.getMinutes() === 59,
-    hours: date => date.getHours() === hoursInDay(date) -1,
-    days: date => date.getDate() === daysInMonth(date),
-    months: date => date.getMonth() === 11,
+    milliseconds: date => date.getMilliseconds() === largestUnitSize.milliseconds(date) - 1,
+    seconds: date => date.getSeconds() === largestUnitSize.seconds(date) - 1,
+    minutes: date => date.getMinutes() === largestUnitSize.minutes(date) - 1,
+    hours: date => date.getHours() === largestUnitSize.hours(date) - 1,
+    days: date => date.getDate() === largestUnitSize.days(date),
+    months: date => date.getMonth() === largestUnitSize.months(date) - 1,
     years: date => false
+};
+
+export const largestUnitSize = {
+	milliseconds: date => 1000,
+	seconds: date => 60,
+	minutes: date => 60,
+	hours: date => hoursInDay(date),
+	days: date => daysInMonth(date),
+	months: date => 12,
+	years: date => Infinity
+};
+
+export const smallestUnitSize = {
+	milliseconds: 0,
+	seconds: 0,
+	minutes: 0,
+	hours: 0,
+	days: 1,
+	months: 0,
+	years: 1
 };
 
 export const hoursInDay = date => {

@@ -5,12 +5,13 @@ export const unitsBetween = (
 	_startDate = new Date(),
 	_endDate = new Date(),
 	unit,
-	multiplier = 1
+	multiple = 1
 ) => {
-	const baseUnitMuliplyer = baseUnitMuliplyers[unit];
-	baseUnitMuliplyer && (unit = baseUnitMuliplyer.unit);
-	baseUnitMuliplyer && (multiplier = baseUnitMuliplyer.multiplier);
-	const multiUnit = unitMs[unit] * multiplier;
+	if (unit === "weeks") {
+		unit = "days";
+		multiple = 7;
+	}
+	const multiUnit = unitMs[unit] * multiple;
 
 	// everything below is unecessary work for standard units of time
 	if (standardUnits.includes(unit)) {
