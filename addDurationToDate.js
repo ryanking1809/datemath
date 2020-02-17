@@ -25,3 +25,9 @@ export const addDurationToDate = (date, duration) => {
 	);
 	return date;
 }
+
+export const addUnitToDate = (date, unit, value) => {
+	let duration = {};
+	duration[unit] = value;
+	addDurationToDate(date, duration)
+}
