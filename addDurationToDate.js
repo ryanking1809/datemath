@@ -1,8 +1,9 @@
-import { cloneDate, durationObj, unitMs } from "./unitHelpers"
+import { cloneDate, unitMs } from "./unitHelpers"
+import { standardizeDuration } from "./durationHelpers";
 
 export const addDurationToDate = (date, duration) => {
     date = cloneDate(date)
-	duration = { ...durationObj, ...duration };
+	duration = standardizeDuration(duration);
 
 	const months = duration.years * 12 + duration.months;
 	const partialMonths = months % 1;

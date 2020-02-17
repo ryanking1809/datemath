@@ -65,3 +65,19 @@ export const durationDaysToWeeks = duration => {
 	duration.days = days - duration.weeks * 7;
 	return duration;
 };
+
+export const standardizeDuration = duration => {
+	return { ...standardDuration, ...duration};
+}
+
+export const standardDuration = {
+	dateRef: null,
+	milliseconds: 0,
+	seconds: 0,
+	minutes: 0,
+	hours: 0,
+	days: 0,
+	weeks: 0,
+	months: 0,
+	years: 0
+};

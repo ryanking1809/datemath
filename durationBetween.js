@@ -1,11 +1,10 @@
 import {
-	durationObj,
 	unitGetters,
 	cloneDate,
 	unitSetters,
 	baseUnits,
 } from "./unitHelpers";
-import { shiftAndCloneDatesForCalculation, durationDaysToWeeks } from "./durationHelpers";
+import { shiftAndCloneDatesForCalculation, durationDaysToWeeks, standardDuration } from "./durationHelpers";
 import { wholeUnitsBetween } from "./wholeUnitsBetween";
 
 export const durationBetween = (_startDate = new Date(), _endDate = new Date()) => {
@@ -13,7 +12,7 @@ export const durationBetween = (_startDate = new Date(), _endDate = new Date()) 
 		_startDate,
         _endDate	
     );
-    let duration = {...durationObj}
+    let duration = {...standardDuration}
     duration.dateRef = cloneDate(_startDate);
     const units = [...baseUnits].reverse();
     units.forEach(unit => {

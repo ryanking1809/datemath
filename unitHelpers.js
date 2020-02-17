@@ -75,18 +75,6 @@ export const unitParents = {
 	years: null,
 };
 
-export const durationObj = {
-    dateRef: null,
-    milliseconds: 0,
-    seconds: 0,
-    minutes: 0,
-    hours: 0,
-    days: 0,
-    weeks: 0,
-    months: 0,
-    years: 0,
-}
-
 export const isLastUnit = {
     milliseconds: date => date.getMilliseconds() === largestUnitSize.milliseconds(date) - 1,
     seconds: date => date.getSeconds() === largestUnitSize.seconds(date) - 1,
