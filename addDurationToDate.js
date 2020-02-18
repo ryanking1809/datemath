@@ -59,6 +59,6 @@ export const addUnitToDate = (date, unit, value) => {
 
 export const subUnitFromDate = (date, unit, value) => {
 	let duration = {};
-	duration[unit] = -value;
-	return addDurationToDate(date, duration);
+	duration[unit] = value;
+	return subDurationFromDate(date, duration);
 };
