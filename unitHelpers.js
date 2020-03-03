@@ -121,5 +121,5 @@ export const daysInMonth = date => {
 }
 
 export const cloneDate = date => {
-    return new Date(date.getTime ? date.getTime() : date);
+    return date ? new Date(date.getTime ? date.getTime() : date) : date;
 }

@@ -1,5 +1,6 @@
 import { cloneDate, unitParents } from "./unitHelpers";
 import { unitsBetween } from "./unitsBetween";
+import { cleanDuration } from "./durationHelpers";
 
 export const largestWholeUnitBetween = (
 	_startDate = new Date(),
@@ -30,5 +31,5 @@ export const largestWholeUnitBetween = (
 		unitVal = unitVal / 7;
 	}
 	duration[smallestUnit] = unitVal;
-	return duration;
+	return cleanDuration(duration);
 };

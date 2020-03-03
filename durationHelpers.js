@@ -67,10 +67,22 @@ export const durationDaysToWeeks = duration => {
 };
 
 export const standardizeDuration = duration => {
-	return { ...standardDuration, ...duration};
+	return cleanDuration({ ...standardDuration, ...duration });
 }
 
-export const standardDuration = {
+export const cleanDuration = duration => {
+	if(duration.dateRef || 'dateRef' in duration) {
+		Object.defineProperty(duration, "dateRef", {
+			enumerable: false,
+			value: duration.dateRef
+		});
+	}
+	return duration;
+}
+
+export const cloneDuration = duration => cleanDuration({...duration})
+
+export const standardDuration = cleanDuration({
 	dateRef: null,
 	milliseconds: 0,
 	seconds: 0,
@@ -80,4 +92,4 @@ export const standardDuration = {
 	weeks: 0,
 	months: 0,
 	years: 0
-};
+});
