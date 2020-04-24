@@ -10,12 +10,7 @@ export default {
     {
       file: pkg.module,
       format: 'es', // the preferred format
-    },
-    {
-      file: pkg.browser,
-      format: 'iife',
-      name: 'DateMath', // the global which can be used in a browser
-    },
+    }
   ],
   external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [
