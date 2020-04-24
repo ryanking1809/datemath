@@ -1,21 +1,17 @@
-import { unitGetters, cloneDate, unitSetters, baseUnits } from "./unitHelpers";
+import { cloneDate, newDate } from "./dateHelpers";
 import {
-	shiftAndCloneDatesForCalculation,
-	durationDaysToWeeks,
-	standardDuration,
     cleanDuration
 } from "./durationHelpers";
-import { wholeUnitsBetween } from "./wholeUnitsBetween";
 
 export const timeFromDate = (
-	date = new Date()
+	date = newDate()
 ) => {
     date = cloneDate(date);
     let time = cleanDuration({dateRef: date});
     time.milliseconds = date.getMilliseconds();
     time.seconds = date.getSeconds();
     time.minutes = date.getMinutes();
-    time.hours = date.getMinutes();
+    time.hours = date.getHours();
 	return time;
 };
 
@@ -26,6 +22,6 @@ export const smallestTimeUnit = (duration) => {
     if (duration.hours) return "hours";
 }
 
-export const smallestTimeUnitFromDate = (date = new Date()) => {
+export const smallestTimeUnitFromDate = (date = newDate()) => {
     return smallestTimeUnit(timeFromDate(date))
 };

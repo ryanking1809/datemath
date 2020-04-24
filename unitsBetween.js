@@ -1,9 +1,10 @@
 import { standardUnits, baseUnitMuliplyers, unitMs } from "./unitHelpers";
 import { shiftAndCloneDatesForCalculation, moveDateWholeUnitDistance } from "./durationHelpers";
+import { newDate } from "./dateHelpers";
 
 export const unitsBetween = (
-	_startDate = new Date(),
-	_endDate = new Date(),
+	_startDate = newDate(),
+	_endDate = newDate(),
 	unit,
 	multiple = 1
 ) => {

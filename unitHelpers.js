@@ -1,3 +1,5 @@
+import { cloneDate } from "./dateHelpers";
+
 const millisecondsMs = 1
 const secondsMs = 1000
 const minutesMs = secondsMs * 60
@@ -118,8 +120,4 @@ export const hoursInDay = date => {
 export const daysInMonth = date => {
     // next month -1 day
     return new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
-}
-
-export const cloneDate = date => {
-    return date ? new Date(date.getTime ? date.getTime() : date) : date;
 }

@@ -1,8 +1,9 @@
 import { unitGetters } from "./unitHelpers";
+import { newDate } from "./dateHelpers";
 
 export const unitLessThan = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	let unitGetter = unitGetters[unit];
@@ -10,8 +11,8 @@ export const unitLessThan = (
 };
 
 export const unitLessThanEqual = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	let unitGetter = unitGetters[unit];
@@ -19,8 +20,8 @@ export const unitLessThanEqual = (
 };
 
 export const unitEqual = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	let unitGetter = unitGetters[unit];
@@ -28,8 +29,8 @@ export const unitEqual = (
 };
 
 export const unitGreaterThan = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	let unitGetter = unitGetters[unit];
@@ -37,8 +38,8 @@ export const unitGreaterThan = (
 };
 
 export const unitGreaterThanEqual = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	let unitGetter = unitGetters[unit];

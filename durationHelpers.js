@@ -1,8 +1,9 @@
-import { cloneDate, unitChildren, unitSetters, unitGetters, isLastUnit, unitMs } from "./unitHelpers";
+import { unitChildren, unitSetters, unitGetters, isLastUnit, unitMs } from "./unitHelpers";
+import { cloneDate, newDate } from "./dateHelpers";
 
 export const shiftAndCloneDatesForCalculation = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	startDate = cloneDate(startDate);
@@ -29,8 +30,8 @@ export const shiftAndCloneDatesForCalculation = (
 };
 
 export const moveDateWholeUnitDistance = (
-	startDate = new Date(),
-	endDate = new Date(),
+	startDate = newDate(),
+	endDate = newDate(),
 	unit
 ) => {
 	let fullUnitEndDate = cloneDate(endDate);

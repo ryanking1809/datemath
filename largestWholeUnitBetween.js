@@ -1,10 +1,11 @@
-import { cloneDate, unitParents } from "./unitHelpers";
+import { unitParents } from "./unitHelpers";
+import { cloneDate, newDate } from "./dateHelpers";
 import { unitsBetween } from "./unitsBetween";
 import { cleanDuration } from "./durationHelpers";
 
 export const largestWholeUnitBetween = (
-	_startDate = new Date(),
-	_endDate = new Date()
+	_startDate = newDate(),
+	_endDate = newDate()
 ) => {
 	let duration = {};
 	duration.dateRef = cloneDate(_startDate);

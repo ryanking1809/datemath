@@ -1,13 +1,13 @@
 import {
 	unitGetters,
-	cloneDate,
 	unitSetters,
 	baseUnits,
 } from "./unitHelpers";
+import { cloneDate, newDate } from "./dateHelpers";
 import { shiftAndCloneDatesForCalculation, durationDaysToWeeks, standardDuration } from "./durationHelpers";
 import { wholeUnitsBetween } from "./wholeUnitsBetween";
 
-export const durationBetween = (_startDate = new Date(), _endDate = new Date()) => {
+export const durationBetween = (_startDate = newDate(), _endDate = newDate()) => {
     let { startDate, endDate } = shiftAndCloneDatesForCalculation(
 		_startDate,
         _endDate	
