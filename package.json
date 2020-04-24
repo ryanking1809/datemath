@@ -1,5 +1,5 @@
 {
-  "name": "datemath",
+  "name": "@ryki/datemath",
   "version": "1.0.0",
   "description": "A collection date, duration, and interval functions",
   "main": "src/index.js",
