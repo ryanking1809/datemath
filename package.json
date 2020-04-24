@@ -2,8 +2,16 @@
   "name": "@ryki/datemath",
   "version": "1.0.0",
   "description": "A collection date, duration, and interval functions",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
   "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,11 +22,6 @@
     "duration",
     "date",
     "time"
-  ],
-  "files": [
-    "LICENSE",
-    "README.md",
-    "src"
   ],
   "author": "Ryan King",
   "license": "MIT",
@@ -33,5 +36,9 @@
     "jsxBracketSameLine": true,
     "tabWidth": 2,
     "printWidth": 120
+  },
+  "devDependencies": {
+    "rollup": "^2.7.2",
+    "rollup-plugin-terser": "^5.3.0"
   }
 }
