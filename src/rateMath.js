@@ -3,6 +3,7 @@ import { matchRateUnits } from "./matchRateUnits";
 import { simplifyRate } from "./simplifyRate";
 import { simplifyDuration } from "./simplifyDuration";
 import { unitMs } from "./unitHelpers";
+import { ratePerUnit } from "./ratePerUnit";
 
 export const addRates = (leftRate, rightRate) => {
 	const [lRate, rRate] = matchRateUnits(leftRate, rightRate)

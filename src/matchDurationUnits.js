@@ -6,8 +6,8 @@ export const matchDurationUnits = (duration1, duration2) => {
     duration2 = simplifyDuration(duration2)
     const duration1Unit = Object.keys(duration1)[0]
     const duration2Unit = Object.keys(duration2)[0]
-    const duration2Divider = durationToUnit(duration2, duration1Unit)
+    const duration2Amount = durationToUnit(duration2, duration1Unit)
     let newDuration2 = {}
-    newDuration2[duration1Unit] = duration2[duration2Unit] / duration2Divider
+    newDuration2[duration1Unit] = duration2Amount
     return [duration1, newDuration2]
 }
