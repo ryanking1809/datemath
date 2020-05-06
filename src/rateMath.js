@@ -29,10 +29,10 @@ export const divideRateBy = (rate, divider) => {
 };
 
 export const multiplyRateByDuration = (rate, duration) => {
-  rate = simplifyRate(rate)
-  duration = simplifyDuration(duration)
-  amount = rate.amount / unitMs[Object.keys(rate.per)[0]] 
-  amount *= unitMs[Object.keys(duration)[0]] 
-  amount *= Object.values(duration)[0] 
-  return amount
+	rate = simplifyRate(rate)
+	duration = simplifyDuration(duration)
+	let amount = rate.amount / unitMs[Object.keys(rate.per)[0]] 
+	amount *= unitMs[Object.keys(duration)[0]] 
+	amount *= Object.values(duration)[0] 
+	return amount
 }
