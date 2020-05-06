@@ -14,6 +14,6 @@ export default {
   ],
   external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [
-    terser(), // minifies generated bundles
+    // terser(), // minifies generated bundles
   ],
 }
