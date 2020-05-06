@@ -65,18 +65,18 @@ export const divideDurations = (leftDuration, rightDuration) => {
 }
 
 export const dividePowerDurationByDuration = (powerDuration, duration) => {
-	const powerDurationVal = simplifyDuration(powerDuration.duration)
+	const powerDurationVal = cloneDuration(powerDuration.duration)
 	const unit = Object.keys(powerDurationVal)[0]
 	const divider = durationToUnit(duration, unit)
-	const amount = Object.values(powerDurationVal)[0] / divider
-	let duration = {}
-	duration[unit] = amount
+	const amount = powerDurationVal[unit] / divider
+	let newDuration = {}
+	newDuration[unit] = amount
 	const power = powerDuration.power - 1
 	if (power === 1) {
-		return duration;
+		return newDuration
 	} else if (power === 0) {
-		return amount;
+		return amount
 	} else {
-		return { duration, power: 2 }
+		return { duration: newDuration, power: 2 }
 	}
 }
