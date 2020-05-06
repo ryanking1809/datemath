@@ -1,9 +1,8 @@
-import { cloneRate } from "./RateHelpers"
-import { normalizeRate } from "./normalizeRate";
-import { subRateFromDate, addRateToDate } from "./addRateToDate";
+import { cloneRate } from "./rateHelpers"
 import { matchRateUnits } from "./matchRateUnits";
 import { simplifyRate } from "./simplifyRate";
 import { simplifyDuration } from "./simplifyDuration";
+import { unitMs } from "./unitHelpers";
 
 export const addRates = (leftRate, rightRate) => {
 	const [lRate, rRate] = matchRateUnits(leftRate, rightRate)
