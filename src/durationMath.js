@@ -33,9 +33,9 @@ export const multiplyDurationBy = (duration, multiplier) => {
 	return normalizeDuration(duration);
 }
 
-export const divideDurationBy = (duration, multiplier) => {
+export const divideDurationBy = (duration, divider) => {
 	duration = cloneDuration(duration);
-	Object.keys(duration).forEach(unit => (duration[unit] /= multiplier));
+	Object.keys(duration).forEach(unit => (duration[unit] /= divider));
 	return normalizeDuration(duration);
 };
 
