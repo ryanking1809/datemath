@@ -1,6 +1,6 @@
 {
   "name": "@ryki/datemath",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A collection date, duration, and interval functions",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
