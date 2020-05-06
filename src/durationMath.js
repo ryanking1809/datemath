@@ -1,6 +1,7 @@
 import { standardizeDuration, cloneDuration } from "./durationHelpers"
 import { normalizeDuration } from "./normalizeDuration";
 import { subDurationFromDate, addDurationToDate } from "./addDurationToDate";
+import { matchDurationUnits } from "./matchDurationUnits";
 
 export const addDurations = (leftDuration, rightDuration) => {
     leftDuration = standardizeDuration(leftDuration);
@@ -44,3 +45,18 @@ export const transformDuration = (duration, transformer = (unit, val) => val ) =
 	Object.keys(duration).forEach(unit => (duration[unit] = transformer(unit, duration[unit])));
 	return normalizeDuration(duration);
 };
+
+export const multiplyDurations = (leftDuration, rightDuration) => {
+	const [lDuration, rDuration] = matchDurationUnits(leftDuration, rightDuration)
+	const unit = Object.keys(lDuration)[0];
+	// not technically correct but works for my needs
+	// introduce squared units in the future?
+	lDuration[unit] *= rDuration[unit];
+	return lDuration;
+}
+
+export const divideDurations = (leftDuration, rightDuration) => {
+	const [lDuration, rDuration] = matchDurationUnits(leftDuration, rightDuration)
+	const unit = Object.keys(lDuration)[0]
+	return lDuration[unit] / rDuration[unit]
+}
