@@ -46,3 +46,7 @@ export const divideNumberByRate = (number, rate) => {
 	duration[unit] = number
 	return duration
 }
+
+export const divideNumberByDuration = (number, duration) => {
+	return cloneRate({amount: number, duration})
+}
