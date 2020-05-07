@@ -37,3 +37,12 @@ export const multiplyRateByDuration = (rate, duration) => {
 	amount *= Object.values(duration)[0] 
 	return amount
 }
+
+export const divideNumberByRate = (number, rate) => {
+	rate = simplifyRate(rate)
+	number /= rate.amount
+	const unit = Object.keys(rate.per)[0]
+	let duration = {}
+	duration[unit] = number
+	return duration
+}
