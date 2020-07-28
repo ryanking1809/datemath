@@ -41,6 +41,9 @@ export const subDurationFromDate = (date, duration) => {
 	const partialMonths = months % 1;
 	const days = duration.weeks * 7 + duration.days;
 	const partialDays = days % 1;
+	const partialHours = duration.hours % 1
+	const partialMinutes = duration.minutes % 1
+	const partialSeconds = duration.seconds % 1
 
 	// set date, month, year will always round to lowest integer
 	// so we need to add the milliseconds for partial months
