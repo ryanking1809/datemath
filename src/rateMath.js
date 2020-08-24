@@ -17,6 +17,12 @@ export const subRates = (leftRate, rightRate) => {
 	return lRate
 };
 
+export const divideRates = (leftRate, rightRate) => {
+  const [lRate, rRate] = matchRateUnits(leftRate, rightRate)
+  const diff = lRate.amount / rRate.amount
+  return diff
+}
+
 export const multiplyRateBy = (rate, multiplier) => {
     rate = cloneRate(rate);
     rate.amount *= multiplier;
