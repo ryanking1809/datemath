@@ -32,7 +32,7 @@ export const multiplyRateBy = (rate, multiplier) => {
 export const divideRateBy = (rate, divider) => {
 	rate = cloneRate(rate);
     rate.amount /= divider
-	return Rate;
+	return rate;
 };
 
 export const multiplyRateByDuration = (rate, duration) => {
