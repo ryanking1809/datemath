@@ -1,13 +1,13 @@
 import { unitChildren, unitSetters, unitGetters, isLastUnit, unitMs } from "./unitHelpers";
-import { cloneDate, newDate } from "./dateHelpers";
+import { cloneDate, defaultDate } from './dateHelpers'
 
 export const shiftAndCloneDatesForCalculation = (
-	startDate = newDate(),
-	endDate = newDate(),
+	startDate,
+	endDate,
 	unit
 ) => {
-	startDate = cloneDate(startDate);
-	endDate = cloneDate(endDate);
+	startDate = defaultDate(startDate);
+	endDate = defaultDate(endDate);
 	// if a date is at the end of a month and can screw up future calculations
 	// as the length of an month can vary - same with day length
 	const adjustDay = !unit || unit === "months";
@@ -30,10 +30,12 @@ export const shiftAndCloneDatesForCalculation = (
 };
 
 export const moveDateWholeUnitDistance = (
-	startDate = newDate(),
-	endDate = newDate(),
+	startDate,
+	endDate,
 	unit
 ) => {
+    startDate = defaultDate(startDate)
+    endDate = defaultDate(endDate)
 	let fullUnitEndDate = cloneDate(endDate);
 	// to make the end date whole units distance away from the start
 	// we make all smaller values equal to the start value

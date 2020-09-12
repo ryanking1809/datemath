@@ -1,12 +1,12 @@
-import { cloneDate, newDate } from "./dateHelpers";
+import { defaultDate, newDate } from './dateHelpers'
 import {
     cleanDuration
 } from "./durationHelpers";
 
 export const timeFromDate = (
-	date = newDate()
+	date
 ) => {
-    date = cloneDate(date);
+    date = defaultDate(date);
     let time = cleanDuration({dateRef: date});
     time.milliseconds = date.getMilliseconds();
     time.seconds = date.getSeconds();

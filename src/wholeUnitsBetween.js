@@ -1,13 +1,15 @@
 import { unitMs, standardUnits } from "./unitHelpers";
 import { shiftAndCloneDatesForCalculation, moveDateWholeUnitDistance } from "./durationHelpers";
-import { newDate } from "./dateHelpers";
+import { defaultDate } from './dateHelpers'
 
 export const wholeUnitsBetween = (
-	_startDate = newDate(),
-	_endDate = newDate(),
+	_startDate,
+	_endDate,
 	unit,
 	multiple = 1
 ) => {
+	_startDate = defaultDate(_startDate)
+  	_endDate = defaultDate(_endDate)
 	if (unit === "weeks") {
 		unit = "days";
 		multiple = 7;

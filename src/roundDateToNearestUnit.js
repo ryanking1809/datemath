@@ -1,8 +1,8 @@
 import { unitChildren, unitGetters, unitSetters, smallestUnitSize } from "./unitHelpers";
-import { cloneDate } from "./dateHelpers";
+import { defaultDate } from "./dateHelpers";
 
 export const roundDateToNearestUnit = (date, unit, multiple = 1) => {
-    date = cloneDate(date)
+    date = defaultDate(date)
     let childUnit = unitChildren[unit];
     date = unitSetters[unit](
 		date,
@@ -16,7 +16,7 @@ export const roundDateToNearestUnit = (date, unit, multiple = 1) => {
 }
 
 export const roundDateToNearestUnitAfter = (date, unit, multiple = 1) => {
-	date = cloneDate(date);
+	date = defaultDate(date);
 	date = unitSetters[unit](
 		date,
 		Math.ceil(unitGetters[unit](date) / multiple) * multiple
@@ -30,7 +30,7 @@ export const roundDateToNearestUnitAfter = (date, unit, multiple = 1) => {
 };
 
 export const roundDateToNearestUnitBefore = (date, unit, multiple = 1) => {
-	date = cloneDate(date);
+	date = defaultDate(date);
 	date = unitSetters[unit](
 		date,
 		Math.floor(unitGetters[unit](date) / multiple) * multiple

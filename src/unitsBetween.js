@@ -1,12 +1,14 @@
 import { unitMs } from "./unitHelpers";
-import { newDate } from "./dateHelpers";
+import { defaultDate, newDate } from "./dateHelpers";
 import { wholeUnitsBetween } from './wholeUnitsBetween'
 
-export const unitsBetween = (startDate = newDate(), endDate = newDate(), unit, multiple = 1) => {
+export const unitsBetween = (startDate, endDate, unit, multiple = 1) => {
   if (unit === 'weeks') {
     unit = 'days'
     multiple = 7
   }
+	startDate = defaultDate(startDate)
+  endDate = defaultDate(endDate)
   const multiUnit = unitMs[unit] * multiple
   const fullUnits = wholeUnitsBetween(startDate, endDate, unit, multiple)
   const fullUnitMs = fullUnits * multiUnit

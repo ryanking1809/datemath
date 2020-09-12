@@ -4,9 +4,11 @@ import { unitsBetween } from "./unitsBetween";
 import { cleanDuration } from "./durationHelpers";
 
 export const largestWholeUnitBetween = (
-	_startDate = newDate(),
-	_endDate = newDate()
+	_startDate,
+	_endDate
 ) => {
+    _startDate = defaultDate(_startDate)
+    _endDate = defaultDate(_endDate)
 	let duration = {};
 	duration.dateRef = cloneDate(_startDate);
 	let smallestUnit = null;

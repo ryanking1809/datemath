@@ -1,4 +1,4 @@
-import { cloneDate } from "./dateHelpers";
+import { defaultDate } from "./dateHelpers";
 
 const millisecondsMs = 1
 const secondsMs = 1000
@@ -48,13 +48,13 @@ export const unitGetters = {
 }
 
 export const unitSetters = {
-	milliseconds: (date, val) => cloneDate(date.setMilliseconds(val)),
-	seconds: (date, val) => cloneDate(date.setSeconds(val)),
-	minutes: (date, val) => cloneDate(date.setMinutes(val)),
-	hours: (date, val) => cloneDate(date.setHours(val)),
-	days: (date, val) => cloneDate(date.setDate(val)),
-	months: (date, val) => cloneDate(date.setMonth(val)),
-	years: (date, val) => cloneDate(date.setFullYear(val))
+	milliseconds: (date, val) => defaultDate(date.setMilliseconds(val)),
+	seconds: (date, val) => defaultDate(date.setSeconds(val)),
+	minutes: (date, val) => defaultDate(date.setMinutes(val)),
+	hours: (date, val) => defaultDate(date.setHours(val)),
+	days: (date, val) => defaultDate(date.setDate(val)),
+	months: (date, val) => defaultDate(date.setMonth(val)),
+	years: (date, val) => defaultDate(date.setFullYear(val))
 };
 
 export const unitChildren = {

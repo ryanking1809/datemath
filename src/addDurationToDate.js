@@ -1,9 +1,9 @@
 import { unitMs } from "./unitHelpers"
-import { cloneDate }from "./dateHelpers"
+import { defaultDate } from './dateHelpers'
 import { standardizeDuration } from "./durationHelpers";
 
 export const addDurationToDate = (date, duration) => {
-    date = cloneDate(date)
+    date = defaultDate(date)
 	duration = standardizeDuration(duration);
 
 	const months = duration.years * 12 + duration.months;
@@ -34,7 +34,7 @@ export const addDurationToDate = (date, duration) => {
 }
 
 export const subDurationFromDate = (date, duration) => {
-	date = cloneDate(date);
+	date = defaultDate(date)
 	duration = standardizeDuration(duration);
 
 	const months = duration.years * 12 + duration.months;
