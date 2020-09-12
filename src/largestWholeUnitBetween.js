@@ -1,5 +1,5 @@
 import { unitParents } from "./unitHelpers";
-import { cloneDate, newDate } from "./dateHelpers";
+import { cloneDate, defaultDate } from './dateHelpers'
 import { unitsBetween } from "./unitsBetween";
 import { cleanDuration } from "./durationHelpers";
 
