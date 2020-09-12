@@ -6,14 +6,14 @@ export const newDate = () => new Date(1970, 0, 1)
 
 export const defaultDate = (...args) => {
 	let date;
-	for(const arg of args) {
+	for (const arg of args) {
 		date = new Date(arg && arg.getTime ? arg.getTime() : arg)
-		if (date !== 'Invalid Date') {
-			break;
+		if (date instanceof Date && date.getTime()) {
+		break
 		}
 	}
-	if (date === 'Invalid Date') {
-		date = newDate();
+	if (!(date instanceof Date) || !date.getTime()) {
+		date = newDate()
 	}
 	return date;
 }
